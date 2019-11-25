@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   post '/sessions' => "sessions#create"
   get '/logout' => "sessions#destroy"
   get '/auth/:provider/callback' => 'sessions#create' # OmniAuth : https://www.youtube.com/watch?v=UAvuo-EbTFY (10:14 / 56:18)
+  resources :users
 
   # This route grabs the homepage for the actual app you're building
   get '/homeapp' => "site#homeapp"
