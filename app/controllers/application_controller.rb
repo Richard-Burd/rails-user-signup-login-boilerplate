@@ -5,35 +5,27 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def authentication_required
-    if !logged_in?
+    if !logged_in? # that is, if you are NOT logged in.
       redirect_to login_path
     end
   end
 
+  # Only the authentication_required method above should use this logged_in? method.
+  # Object controllers should call the current_user method as shown in the
+  # index action of the site controller in: app/controllers/site_controller.rb
   def logged_in?
-    # session[:user_id]                                                         <= GENERATION ONE
-    # Now that I'm using this line in the "current_user" method below:
-    # @current_user ||= User.find_by(session[:user_id])
-    # All I have to do is make sure there is a current user present
+    # if you are not-not-the current user, that means you ARE the current user.
     !!current_user
   end
 
   def current_user
-    # If you do it like this, you will be firing SQL every time you call this method.
-    # User.find_by(session[:user_id])                                           <= GENERATION ONE
-
-    # Now, the first time I call this method, "@current_user" will be assigned
-    # the "User.find_by(session[:user_id])" value, and the program will not have
-    # to fire SQL again.
-    # @current_user ||= User.find_by(session[:user_id])
-
-    # Now that we've defined logged_in? as "!!current_user" we need to add an if statement:
+    #
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
   # Methods you build in controllers do not permeate to
   # the ActionView part of your code...
   # You cannot call this in your html.erb unless you say explicitly That
-  # this is a "helper_method" - at which
+  # this is a "helper_method"
   helper_method :current_user
 end
