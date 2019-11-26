@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-    #
+    # I am still looking for where Avi explains how this works
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 

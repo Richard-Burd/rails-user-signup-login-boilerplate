@@ -2,11 +2,20 @@
 <br>
 <h2>Welcome to the Rails User Signup / Login Boilerplate App</h2>
 <h3>by Richard Burd</h3>
-<p>This program allows users to create new accounts, login with those accounts, and/or also login usinn GitHub OmniAuth</p>
-<p>Please sign up or login to use the program</p>
+<p>This program allows users to create new accounts, login with those accounts, and/ or also login using GitHub OmniAuth.  This program does nothing else.</p>
+<p>Please sign up or login below to use the program:</p>
 
 
 <ul>
   <li><%= link_to "Signup as a new user", new_user_path %></li>
   <li><%= link_to "Login as an existing user", login_path %></li>
 </ul>
+
+<p>
+This app implements the logic setup by Avi Flombaum in the
+<%= link_to "Authentication in Rails Video", 'https://www.youtube.com/watch?v=gB7lYvfL4J4' %>
+</p>
+<p>
+This app also implements the logic Avi's
+<%= link_to "Implementing Omniauth Video", 'https://www.youtube.com/watch?v=UAvuo-EbTFY' %>
+</p>

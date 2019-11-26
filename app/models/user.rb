@@ -10,27 +10,22 @@ class User < ApplicationRecord
   validates :email, uniqueness: { case_sensitive: false }
   validates :username, uniqueness: { case_sensitive: false }
 
-  # Article on setting all emails to lower case:
-  # https://stackoverflow.com/questions/6422211/rails-3-validating-email-uniqueness-and-case-sensitive-fails
-
-  # This no longer works now that we're requiring new users to have a username and email
-  # def self.find_or_create_by_omniauth(auth_hash)
-  #   # I changed the ["info"]["email"] to ["info"]["name"] because the email value is
-  #   # "nill" when I type "auth_hash["info"]["email"]" into the browser's error console
-  #   self.where(:email => auth_hash["info"]["name"]).first_or_create do |user|
-  #     user.password = SecureRandom.hex, user.username = "OmniAuth User"
-  #   end
-  # end
-
+  # This method gets created here:
+  # https://www.youtube.com/watch?v=UAvuo-EbTFY (38:00 / 56:18)
+  # The "auth_hash" below is set to the value of request.env["omniauth.auth"]
+  # in the sessions controller's create action.
   def self.find_or_create_by_omniauth(auth_hash)
-    # I changed the ["info"]["email"] to ["info"]["name"] because the email value is
-    # "nill" when I type "auth_hash["info"]["email"]" into the browser's error console.
-    # this is because in my particular
+    # The "first_or_create" ActiveRecord method will find the first instance
+    # where the user's username is the same as the [:info][:name] value inside
+    # the auth_hash.  If no such name exists, ActiveRecord will create a new user.
+    # "first_or_create" will always return an instance of a user.
     self.where(:username => auth_hash["info"]["name"]).first_or_create do |user|
-      # for simplification purposes, the username & email for an omniauth user
-      # will be exactly the same value because we never need to know the email
-      # address of the user in this program, additionally, there is no actual
-      # email address exposed within the auth_hash from GitHub.
+      # This user is using OmniAuth.  Here we assume they will never need to login
+      # to this Rails app using the non-OmniAuth [standard] login means.  To that end,
+      # an OmniAuth user will never enter a password on this Rails app (only on GitHub)
+      # and so on the next line of code below, we need to assign them a password
+      # because the User.rb model requires all users to have such a password.
+      # "SecureRandom.hex" will assign a number that hackers won't be able to guess
       user.password = SecureRandom.hex,
       if auth_hash["info"]["email"] == nil # that is, no email address is listed.
         # some GitHub users have their email set to private.  If that is the
