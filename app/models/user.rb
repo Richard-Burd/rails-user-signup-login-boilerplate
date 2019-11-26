@@ -3,9 +3,6 @@ class User < ApplicationRecord
 
   validates :email, :presence => true
   validates :username, presence: true
-  # I don't think I need these two statements anymore now that I have the other ones:
-  # validates :email, :presence => true
-  # validates :email, :uniqueness => true
 
   validates :email, uniqueness: { case_sensitive: false }
   validates :username, uniqueness: { case_sensitive: false }

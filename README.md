@@ -18,8 +18,8 @@ Clone this repo into your IDE and run `$ bundle install`.  After that, run `$ ra
 ├── README.md
 ├── app
 │   ├── assets
-│   │   ├── stylesheets
-│   │   │   └── homeapp.scss
+│   │   └── stylesheets
+│   │       └── homeapp.scss
 │   ├── controllers
 │   │   ├── admin_controller.rb
 │   │   ├── application_controller.rb
@@ -38,8 +38,8 @@ Clone this repo into your IDE and run `$ bundle install`.  After that, run `$ ra
 │       ├── site
 │       │   ├── homeapp.html.erb
 │       │   └── index.html.erb
-│       ├── users
-│       │   └── new.html.erb
+│       └── users
+│           └── new.html.erb
 └── db
     ├── migrate
     │   ├── 20191103143512_create_users.rb
