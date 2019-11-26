@@ -2,19 +2,12 @@
 # Rails User Signup / Login Boilerplate App
 
 ## Overview
-
 This program is a simple Rails app that authenticates existing users, allows new users to sign up, and allows users to sign up or login (as current users) using GitHub OmniAuth...AKA GitHub OAuth.
 
-## Cool Graphics
-
-<p class='util--hide'> A process flow illustration showing the object models and their relations is available in the programs main directory (in SVG format) as well as in png format <a href='https://i.imgur.com/IRiuHbM.png'>here</a> on this readme file.</p>
-
 ## About This Program
-
-The code implemented in this space is based on the Flatiron School's Online Web App Development Program as of November 26th, 2019.  There are two code-along videos used as references; the <a href='https://www.youtube.com/watch?v=gB7lYvfL4J4'>Authentication in Rails Video</a> and the <a href='https://www.youtube.com/watch?v=UAvuo-EbTFY'>Implementing Omniauth Video</a>
+<p>The code implemented in this space is based on the Flatiron School's Online Web App Development Program as of November 26th, 2019. &nbspThere are two code-along videos used as references; the <a href='https://www.youtube.com/watch?v=gB7lYvfL4J4'>Authentication in Rails Video</a> and the <a href='https://www.youtube.com/watch?v=UAvuo-EbTFY'>Implementing OmniAuth Video</a>.  &nbspIf you are a student in the Flatiron School's online web app development program, you can use this workspace as a reference when working on the Rails portfolio project.  &nbspYou can also clone a copy and use it as a start-point for the rails project.</p> <p>The basic idea here is to get user the user login & signup interfaces working properly before building an app that users will use. &nbspThis can prevent headaches down the line if implemented correctly.</p>
 
 ## Install instructions
-
 Clone this repo into your IDE and run `$ bundle install`.  After that, run `$ rails s` to run your server...copy & paste the domain into a web browser URL and go from there.
 
 ### Project File Structure

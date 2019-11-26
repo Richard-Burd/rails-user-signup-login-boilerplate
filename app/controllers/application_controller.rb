@@ -18,14 +18,24 @@ class ApplicationController < ActionController::Base
     !!current_user
   end
 
-  def current_user
-    # I am still looking for where Avi explains how this works
+  def current_user # https://www.youtube.com/watch?v=gB7lYvfL4J4 (1:13:20 / 1:22:29)
+    # In this arrangement, you will call "current_user" 6 or 7 times in a request cycle
+    # Now if you were to define 'current_user' like this:
+    # User.find(session[:user_id])
+    # ...you would be firing SQL each time and that would slow down your app...
+    # ...therefore, you want to do something like this:
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    # The first time I fire up the app, the "@current_user" will be nil, so it will
+    # "at-or" [...||=...] to "User.find(session[:user_id])" instead.  This way,
+    # once it has a current_user, it will not query the database again.
+    # BUT! it will only do this if ther is a "session[:user_id]" because otherwise,
+    # if you're logged out and the value is nil, the program will throw an error
+    # message.
   end
 
-  # Methods you build in controllers do not permeate to
-  # the ActionView part of your code...
-  # You cannot call this in your html.erb unless you say explicitly That
-  # this is a "helper_method"
+  # Methods you build in controllers do not permeate to the ActionView part of
+  # your code... that is, you cannot call this in your html.erb unless you say
+  # explicitly That this is a "helper_method"
+  # reference: https://www.youtube.com/watch?v=gB7lYvfL4J4 (1:12:20 / 1:22:29)
   helper_method :current_user
 end
