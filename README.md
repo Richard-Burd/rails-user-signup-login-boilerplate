@@ -7,7 +7,11 @@ This program is a simple Rails app that authenticates existing users, allows new
 ## About This Program
 <p>The code implemented in this space is based on the Flatiron School's Online Web App Development Program as of November 26th, 2019. &nbspThere are two code-along videos used as references; the <a href='https://www.youtube.com/watch?v=gB7lYvfL4J4'>Authentication in Rails Video</a> and the <a href='https://www.youtube.com/watch?v=UAvuo-EbTFY'>Implementing OmniAuth Video</a>.  &nbspIf you are a student in the Flatiron School's online web app development program, you can use this workspace as a reference when working on the Rails portfolio project.  &nbspYou can also clone a copy and use it as a start-point for the rails project.</p> <p>The basic idea here is to get the user login & signup interfaces working properly before building an app that users will actually use. &nbspThis can prevent headaches down the line if implemented correctly.</p>
 
-<p>I used this workspace as a starting point for my <a href='https://github.com/Richard-Burd/rails-portfolio-project'>Rails Portfolio project</a>. &nbspThere you will find an illustration of that project showing how everything works. &nbspIf you navigate to the lower right-hand corner of the illustration, at the bottom of the symbol legend, you will see some info on login strategies that will walk you through the three different ways a user can access the program:</P>
+<p>I used this workspace as a starting point for my <a href='https://github.com/Richard-Burd/rails-portfolio-project'>Rails portfolio project</a>. &nbspOn that repo you will find an illustration in the README showing how everything works.  &nbspHere's the illustration with the components relevant to <b>this</b>  project shown un-shaded:
+<a href="https://imgur.com/gsemxFw"><img src="https://i.imgur.com/5k9uNGt.jpg" title="source: imgur.com" /></a>
+<p>You can check out the original  <a href='https://i.imgur.com/uVH8J9x.jpg'>here</a>. and navigate to areas relevant to user signup and login.</p>
+
+<p>If you navigate to the lower right-hand corner of the illustration, at the bottom of the symbol legend, you will see some info on login strategies that will walk you through the three different ways a user can access the program:</P>
 <ul>
   <li>A user can login as a returning user</li>
   <li>A user can login using GitHub OAuth (OmniAuth)</li>
